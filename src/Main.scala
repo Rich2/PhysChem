@@ -6,6 +6,6 @@ object Main
 {
   def main(args: Array[String]): Unit =
   {
-    debvar(Hydrogen)
+    println(Water.atoms)
   }
 }
