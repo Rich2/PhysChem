@@ -2,7 +2,8 @@
 name := "PhysChem"
 version := "0.0.1"
 scalaVersion := "3.6.4"
-resolvers += "RichStrat" at "https://richstrat.com/repository"
-libraryDependencies += "com.richstrat" % "rutil" % "0.3.5"
-libraryDependencies += "com.richstrat" % "geom" % "0.3.5"
+
+lazy val root = (project in file(".")).dependsOn(util, geom)
+lazy val util = ProjectRef(uri("https://github.com/Rich2/openstrat.git"), "Util")
+lazy val geom = ProjectRef(uri("https://github.com/Rich2/openstrat.git"), "Geom")
 Compile/scalaSource := baseDirectory.value / "src"

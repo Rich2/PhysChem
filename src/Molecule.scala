@@ -9,7 +9,7 @@ trait Molecule
   val bonds: RPairArr[Atom, Atom]
 }
 
-object H2Cule extends Molecule
+object Dihydrogen extends Molecule
 {
   val aH1 = HAtom()
   val aH2 = HAtom()

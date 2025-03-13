@@ -19,7 +19,7 @@ class Atom(val element: Element)
 
 object Hydrogen extends Element("Hydrogen", "H")
 { override val atomicNum: Int = 1
-  override val cpkColour: Colour =  White
+  override val cpkColour: Colour = White
   object Protium extends Isotope(0)
   object Deuterium extends Isotope(1)
   object Tritium extends Isotope(2)
