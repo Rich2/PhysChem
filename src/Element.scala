@@ -1,10 +1,11 @@
 /* Copyright 2025 Richard Oliver. Licensed under Apache Licence version 2.0. */
 package ppart
-import ostrat.*, Colour.*
+import ostrat.*, geom.*, Colour.*
 
 abstract class Element(val name: String, val abrev: String)
 { val atomicNum: Int
   def cpkColour: Colour
+  def radius: Angstroms = Angstroms(0.55)
   override def toString: String = name + "Atom"
 
   class Isotope(val numNeutrons: Int)
@@ -20,6 +21,7 @@ class Atom(val element: Element)
 object Hydrogen extends Element("Hydrogen", "H")
 { override val atomicNum: Int = 1
   override val cpkColour: Colour = White
+  override def radius: Angstroms = Angstroms(0.55)
   object Protium extends Isotope(0)
   object Deuterium extends Isotope(1)
   object Tritium extends Isotope(2)
