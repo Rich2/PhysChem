@@ -6,6 +6,7 @@ import ostrat.*
 trait Molecule
 {
   val atoms: RArr[Atom]
+  val bonds: RPairArr[Atom, Atom]
 }
 
 object H2Cule extends Molecule
@@ -13,12 +14,13 @@ object H2Cule extends Molecule
   val aH1 = HAtom()
   val aH2 = HAtom()
   override val atoms: RArr[Atom] = RArr(aH1, aH2)
+  override val bonds: RPairArr[Atom, Atom] = RPairArr((aH1, aH2))
 }
 
 object Water extends Molecule
-{
-  val aH1 = HAtom()
+{ val aH1 = HAtom()
   val aO1 = OAtom()
   val aH2 = HAtom()
   override val atoms: RArr[Atom] = RArr(aH1, aO1, aH2)
+  override val bonds: RPairArr[Atom, Atom] = RPairArr((aH1, aO1), (aO1, aH2))
 }
