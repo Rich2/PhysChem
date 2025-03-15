@@ -1,10 +1,9 @@
  /* Copyright 2025 Richard Oliver. Licensed under Apache Licence version 2.0. */
 package ppart
-import ostrat.*, javafx.*, stage.*, scene.*, canvas.*
+import ostrat.*, javafx.*, stage.*, scene.*, canvas.*, pgui.*
 
 object FxApp
-{
-  def main(args: Array[String]): Unit = javafx.application.Application.launch(classOf[AppStart], args*)
+{ def main(args: Array[String]): Unit = javafx.application.Application.launch(classOf[AppStart], args*)
 }
 
 class AppStart extends application.Application
@@ -18,6 +17,8 @@ class AppStart extends application.Application
     root.getChildren.add(canvasCanvas)
     primaryStage.setX(0)//Sets default x value
     val jScene = new Scene(root, canvWidth, canvHeight)
+    val newAlt = pFx.CanvasFx(canvasCanvas, jScene)
+    Canv1(newAlt)
     primaryStage.setTitle("Particles")
     primaryStage.setScene(jScene)
     primaryStage.show

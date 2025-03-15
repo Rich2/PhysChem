@@ -13,6 +13,7 @@ lazy val Particle = project.settings(
 
 lazy val PartFx = project.dependsOn(Particle).settings(
   Compile/scalaSource := baseDirectory.value / "src",
+  libraryDependencies += "com.richstrat" % "geomfx" % "0.3.6", //withSources() withJavadoc(),
   libraryDependencies += "org.openjfx" % "javafx-controls" % "15.0.1" withSources() withJavadoc(),
 )
 
