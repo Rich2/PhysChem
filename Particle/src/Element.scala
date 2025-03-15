@@ -14,8 +14,11 @@ abstract class Element(val name: String, val abrev: String)
   }
 }
 
-class Atom(val element: Element)
-{ override def toString: String = element.abrev + "-" + "atom"
+class Atom(val element: Element) extends ParticlePrimary
+{ override def radius: Length = element.radius
+  override def toString: String = element.abrev + "-" + "atom"
+  override def colour: Colour = element.cpkColour
+  override def charge: Int = 0
 }
 
 object Hydrogen extends Element("Hydrogen", "H")
@@ -39,6 +42,8 @@ object Carbon extends Element("Carbon", "C")
 }
 
 class CAtom extends Atom(Carbon)
+{ 
+}
 
 object Oxygen extends Element("Oxygen", "O")
 { override val atomicNum: Int = 8
