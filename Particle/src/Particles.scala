@@ -16,7 +16,7 @@ trait Nucleon extends ParticlePrimary
 
 /** the Neutron */
 class Neutron extends Nucleon
-{ override def radius: Length = 0.8e-3.picoMetres
+{ override def radius: Length = Femtometres(0.8)
   override def colour: Colour = DarkRed
   override val charge = 0
 }
