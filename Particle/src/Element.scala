@@ -9,8 +9,7 @@ abstract class Element(val name: String, val abrev: String)
   override def toString: String = name + "Atom"
 
   class Isotope(val numNeutrons: Int)
-  {
-    def numNucleons: Int = atomicNum + numNeutrons
+  { def numNucleons: Int = atomicNum + numNeutrons
   }
 }
 
@@ -42,8 +41,6 @@ object Carbon extends Element("Carbon", "C")
 }
 
 class CAtom extends Atom(Carbon)
-{ 
-}
 
 object Oxygen extends Element("Oxygen", "O")
 { override val atomicNum: Int = 8
