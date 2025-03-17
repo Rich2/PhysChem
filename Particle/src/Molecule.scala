@@ -20,7 +20,7 @@ trait Molecule
   def draws(scale: Length, xOff: Length = 0.picometres, yOff: Length = 0.picometres): GraphicElems =
     bondSegs.map{bs =>
       val bs1 = bs.slate(xOff, yOff)
-      LineSeg(bs1.xStart / scale, bs1.yStart / scale, bs1.xEnd / scale, bs1.yEnd /scale).draw() }
+      bs1./(scale).draw() }
 
   def fillDraws(scale: Length, xOff: Length = 0.metres, yOff: Length = 0.metres): GraphicElems = draws(scale, xOff, yOff) ++ fills(scale, xOff, yOff)
 }
