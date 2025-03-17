@@ -2,7 +2,7 @@
 name := "PhysChem"
 version := "0.0.1"
 ThisBuild/scalaVersion := "3.6.4"
-val osUri = uri("https://github.com/Rich2/openstrat.git#59db1c3")
+val osUri = uri("https://github.com/Rich2/openstrat.git#ea32cfb")
 lazy val Util = ProjectRef(osUri, "Util")
 lazy val Geom = ProjectRef(osUri, "Geom")
 lazy val GeomFx = ProjectRef(osUri, "GeomFx")
