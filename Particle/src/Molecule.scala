@@ -19,8 +19,8 @@ trait Molecule
 
   def draws(scale: Length, xOff: Length = 0.picometres, yOff: Length = 0.picometres): GraphicElems =
     bondSegs.map{bs =>
-      //val ls1 = bs.slate(xOff. yOff)
-      LineSeg(bs.xStart / scale, bs.yStart / scale, bs.xEnd / scale, bs.yEnd /scale).draw() }
+      val bs1 = bs.slate(xOff, yOff)
+      LineSeg(bs1.xStart / scale, bs1.yStart / scale, bs1.xEnd / scale, bs1.yEnd /scale).draw() }
 
   def fillDraws(scale: Length, xOff: Length = 0.metres, yOff: Length = 0.metres): GraphicElems = draws(scale, xOff, yOff) ++ fills(scale, xOff, yOff)
 }
@@ -46,4 +46,15 @@ object Water extends Molecule
   val a01Posn = PtPm2.origin
   override val atomPosns: PtPm2Arr = PtPm2Arr(a01Posn.angleTo(-180.degs + bondRem, bondLen), a01Posn, a01Posn.angleTo(0.degs - bondRem, bondLen))
   override val bonds: RPairArr[Atom, Atom] = RPairArr((aH1, aO1), (aO1, aH2))
+}
+
+object CO2Mc extends Molecule
+{
+  val aO1 = OAtom()
+  val aC1 = CAtom()
+  val aO2 = OAtom()
+  override val atoms: RArr[Atom] = RArr(aO1, aC1, aO2)
+  val bondLenNum = 116.3
+  override def atomPosns: PtPm2Arr = PtPm2Arr.fromDbls(-bondLenNum,0 ,0,0, bondLenNum, 0)
+  override val bonds: RPairArr[Atom, Atom] = RPairArr((aC1, aO1), (aC1, aO2))
 }
