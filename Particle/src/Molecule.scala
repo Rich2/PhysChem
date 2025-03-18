@@ -4,8 +4,7 @@ import ostrat.*, geom.*
 
 /** A Chemical compound. */
 trait Molecule
-{
-  val atoms: RArr[Atom]
+{ val atoms: RArr[Atom]
   def atomInd(atom: Atom): Int = atoms.indexOf(atom)
   def atomPosns: PtPm2Arr
   val bonds: RPairArr[Atom, Atom]
