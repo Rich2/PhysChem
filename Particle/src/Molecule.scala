@@ -17,9 +17,7 @@ trait Molecule
     atoms.iMap{(i, at) => at.fillDraw(scale, (xOff + atomPosns(i).x) / scale, (yOff  + atomPosns(i).y)/ scale) }
 
   def draws(scale: Length, xOff: Length = 0.picometres, yOff: Length = 0.picometres): GraphicElems =
-    bondSegs.map{bs =>
-      val bs1 = bs.slate(xOff, yOff)
-      bs1./(scale).draw() }
+    bondSegs.map{bs => bs.slate(xOff, yOff).mapScalars(scale).draw() }
 
   def fillDraws(scale: Length, xOff: Length = 0.metres, yOff: Length = 0.metres): GraphicElems = draws(scale, xOff, yOff) ++ fills(scale, xOff, yOff)
 }
